@@ -35,7 +35,7 @@ public class PromocionProducto extends Promocion {
     private boolean aplicaDescuento(Producto producto) {
         LocalDate fechaActual = LocalDate.now();
 
-        if(producto.esMarca(this.marca)) {
+        if(producto.esMarca(this.marca.getTipo())) {
             if (fechaActual.isAfter(fechaInicio) && fechaActual.isBefore(fechaFin)) {
                 return true;
             }

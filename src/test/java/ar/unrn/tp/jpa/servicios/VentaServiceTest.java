@@ -47,12 +47,12 @@ public class VentaServiceTest {
 
         clienteService.crearCliente("Simon", "Preuss", "39870345", "simon@gmail.com");
 
-        productoService.crearProducto("777", "Remera Crossfit", 15000, "Adudas", 1L);
-        productoService.crearProducto("555", "Pantalon corto", 11000, "Adudas", 1L);
+        productoService.crearProducto("777", "Remera Crossfit", 10000, "Adudas", 1L);
+        productoService.crearProducto("555", "Pantalon corto", 10000, "Adudas", 1L);
 
         clienteService.agregarTarjeta(1L, "34595465465454", "Visa", 150000);
 
-        descuentoService.crearDescuentoSobreTotal("Visa", LocalDate.now().minusDays(2), LocalDate.now().plusDays(2), 0.8);
+        descuentoService.crearDescuentoSobreTotal("Visa", LocalDate.now().minusDays(2), LocalDate.now().plusDays(2), 0.5);
         descuentoService.crearDescuento("Adudas", LocalDate.now().minusDays(2), LocalDate.now().plusDays(2), 0.5);
     }
 
@@ -129,7 +129,7 @@ public class VentaServiceTest {
             idsProductos.add(p.id());
         });
 
-        Assertions.assertEquals(ventaService.calcularMonto(idsProductos, 1L), 5200);
+        Assertions.assertEquals(ventaService.calcularMonto(idsProductos, 1L), 5000);
     }
 
     @Test

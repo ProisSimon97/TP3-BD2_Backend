@@ -15,7 +15,7 @@ public class ServiceExceptionHandler {
     public ResponseEntity<Map<String, String>> handleException(RuntimeException exception) {
 
         Map<String, String> response = new HashMap<>();
-        response.put("error", "error: " + exception.getMessage());
+        response.put("error", exception.getMessage());
 
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }

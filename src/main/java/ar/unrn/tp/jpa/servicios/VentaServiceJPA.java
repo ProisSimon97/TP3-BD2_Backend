@@ -98,9 +98,7 @@ public class VentaServiceJPA implements VentaService {
 
             Carrito carrito = new Carrito();
 
-            productosBd.forEach(p -> {
-                carrito.agregarProducto(p);
-            });
+            carrito.agregarProductos(productosBd);
 
             return (float) carrito.calcularMontoTotalConDescuento(promocionesProducto, promocionCompra, tarjeta);
 
